@@ -1,0 +1,22 @@
+:root {
+  /*
+  * Colors
+  */
+  --brand: #3C948B;
+  --grey-1: #0a0a0a;
+  --grey-2: #959595;
+  --grey-3: #dadada;
+  --grey-4: #ededed;
+  --color-type-body: var(--grey-1);
+  --success: #2a7e2e;
+  --atenttion: #2196f3;
+  --wait: #fff8dd;
+  --error: #d92525;
+
+  /*
+  * Fonts
+  */
+  --base-font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  --headers-font-family: serif;
+  --base-font-lineheight: 1.5em;
+}

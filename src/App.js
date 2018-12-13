@@ -1,28 +1,31 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense, lazy, useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+const NotFound = lazy(() => import('./components/pages/NotFound'));
+const HomePage = lazy(() => import('./components/pages/Home'));
+const ShowPage = lazy(() => import('./components/pages/Show'));
+const EpisodePage = lazy(() => import('./components/pages/Episode'));
+
+
+function App() {
+  const [title] = useState('Home');
+
+  useEffect(() => {
+    document.title = title;
+  });
+
+  return (
+    <Router>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+          <Route path="/" component={HomePage} exact />
+          <Route path="/shows/:showId" exact component={ShowPage} />
+          <Route path="/shows/:showId/episode/:season/:number" exact component={EpisodePage} />
+          <Route path="*" component={NotFound} />
+        </Switch>
+      </Suspense>
+    </Router>
+  );
 }
 
 export default App;
