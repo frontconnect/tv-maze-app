@@ -5,6 +5,7 @@ import ShowService from '../../../domains/show/show.service.js';
 import { ShowModel } from '../../../domains/show/show.model';
 import { FETCH_SHOW_ERROR, FETCH_SHOW_REQUEST } from '../../../domains/show/show.constants';
 import NotFound from '../NotFound';
+import Card from '../../organisms/card/';
 
 function getShowId(match) {
   if (match && match.params && match.params.showId) {
@@ -49,8 +50,7 @@ function ShowPage(props) {
 
   return (
     <Fragment>
-      <div data-cy="show-title">{show.title}</div>
-      <div data-cy="show-description">{show.description}</div>
+      <Card id="card" show={show}/>
     </Fragment>
   );
 }

@@ -1,5 +1,6 @@
 import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Header from './components/organisms/header/header';
 
 const NotFound = lazy(() => import('./components/pages/NotFound'));
 const HomePage = lazy(() => import('./components/pages/Home'));
@@ -17,6 +18,7 @@ function App() {
   return (
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
+        <Header/>
         <Switch>
           <Route path="/" component={HomePage} exact />
           <Route path="/shows/:showId" exact component={ShowPage} />

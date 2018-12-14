@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "node-sass-chokidar": "^1.3.4",
+    "prop-types": "^15.6.2",
     "react": "^16.7.0-alpha.2",
     "react-dom": "^16.7.0-alpha.2",
     "react-router-dom": "^4.4.0-beta.6",
