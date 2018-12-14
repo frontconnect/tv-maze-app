@@ -16,7 +16,7 @@ function getShowId(match) {
 }
 
 function ShowPage(props) {
-  const [title, setTitle] = useDocumentTitle(title);
+  const [setTitle] = useDocumentTitle('Show');
   const [showId] = useState(getShowId(props.match));
 
   const [{show, serverSideError}, dispatch] = useReducer(reducers, {show: new Show()});

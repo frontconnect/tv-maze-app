@@ -7,5 +7,5 @@ export function useDocumentTitle(title) {
     document.title = pageTitle;
   }, [pageTitle]);
 
-  return [pageTitle, setPageTitle];
+  return [setPageTitle];
 }
