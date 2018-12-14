@@ -3,6 +3,7 @@
   * Colors
   */
   --brand: #3C948B;
+  --secondary: #3F3F3F;
   --grey-1: #0a0a0a;
   --grey-2: #959595;
   --grey-3: #dadada;
@@ -16,7 +17,14 @@
   /*
   * Fonts
   */
-  --base-font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  --base-font-family: "Helvetica Neue", Arial, sans-serif;
   --headers-font-family: serif;
-  --base-font-lineheight: 1.5em;
+  --base-font-lineheight: 1.6;
+  --headers-font-lineheight: 1;
+
+
+  /*
+  * Spacing
+  */
+  --element-spacing: 1rem;
 }

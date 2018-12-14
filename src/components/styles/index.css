@@ -3,6 +3,7 @@
   * Colors
   */
   --brand: #3C948B;
+  --secondary: #3F3F3F;
   --grey-1: #0a0a0a;
   --grey-2: #959595;
   --grey-3: #dadada;
@@ -15,9 +16,14 @@
   /*
   * Fonts
   */
-  --base-font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  --base-font-family: "Helvetica Neue", Arial, sans-serif;
   --headers-font-family: serif;
-  --base-font-lineheight: 1.5em; }
+  --base-font-lineheight: 1.6;
+  --headers-font-lineheight: 1;
+  /*
+  * Spacing
+  */
+  --element-spacing: 1rem; }
 
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -330,3 +336,13 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--headers-font-family);
+  font-weight: 300; }
+
+h1 {
+  font-size: 3rem;
+  line-height: var(--headers-font-lineheight);
+  margin-top: 0;
+  margin-bottom: 0.5rem; }
