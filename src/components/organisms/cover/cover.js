@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BREAKPOINTS } from '../../common/breakpoints';
 
+import './cover.css';
+
 export default function Cover({coverImage, alt = ''}) {
-  console.log(coverImage);
   return (
     <picture>
       <source srcSet={`${coverImage.medium}`} media={`(max-width: ${BREAKPOINTS.medium}`}/>
-      <img src={coverImage.original} alt={alt}/>
+      <img className="cover--image" src={coverImage.original} alt={alt}/>
     </picture>
   );
 }

@@ -1,11 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
+import { useDocumentTitle } from '../common/useDocumentTitle';
 
 function EpisodePage() {
-  const [title] = useState('Episode');
-
-  useEffect(() => {
-    document.title = `${title} Name and Number`;
-  });
+  useDocumentTitle('Episodes');
 
   return (
     <div data-cy="episode">Hello episode page</div>

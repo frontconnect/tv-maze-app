@@ -1,20 +1,40 @@
 @import '../../styles/breakpoints';
+@import '../../styles/common';
+
+.card {
+  padding: var(--element-padding);
+}
 
 .card--details {
   display: flex;
 }
 
-.card--details > * {
-  margin-right: var(--element-spacing);
+.card--title {
+  @media (max-width: $small) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
 }
 
+.card--details > *:not(:last-child) {
+  margin-right: var(--element-margin);
+}
+
+.card--description {
+  width: 60%;
+  flex-grow: 1;
+}
 .card--description > * {
   margin-top: 0;
 }
 
 .card--image {
-  @media (max-width: $medium) {
-    width: 40%;
-    max-width: 40%;
-  }
+  width: 40%;
+  min-width: 100px;
 }

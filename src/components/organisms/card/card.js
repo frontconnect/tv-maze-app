@@ -6,11 +6,10 @@ import Cover from '../cover/cover';
 import './card.css';
 
 export default function Card({show}) {
-  console.log('Card', show);
   return (
-    <section>
-      <header>
-        <Title>{show.title}</Title>
+    <section className="card">
+      <header className="card--title">
+        <Title >{show.title}</Title>
       </header>
       <section className="card--details">
         <aside className="card--image">

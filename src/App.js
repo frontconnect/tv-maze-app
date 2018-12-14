@@ -1,12 +1,10 @@
 import React, { Suspense, lazy, useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Header from './components/organisms/header/header';
 
 const NotFound = lazy(() => import('./components/pages/NotFound'));
-const HomePage = lazy(() => import('./components/pages/Home'));
 const ShowPage = lazy(() => import('./components/pages/Show'));
 const EpisodePage = lazy(() => import('./components/pages/Episode'));
-
 
 function App() {
   const [title] = useState('Home');
@@ -20,7 +18,7 @@ function App() {
       <Suspense fallback={<div>Loading...</div>}>
         <Header/>
         <Switch>
-          <Route path="/" component={HomePage} exact />
+          <Redirect path="/" exact to="/shows/6771" />
           <Route path="/shows/:showId" exact component={ShowPage} />
           <Route path="/shows/:showId/episode/:season/:number" exact component={EpisodePage} />
           <Route path="*" component={NotFound} />
