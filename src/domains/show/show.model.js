@@ -3,16 +3,16 @@ class ShowImage {
   original = '';
 }
 
-export class ShowModel {
+export class Show {
   title = '';
   description = '';
   coverImage = new ShowImage();
   episodes = [];
 }
 
-export class ShowModelSerializer {
+export class ShowSerializer {
   static fromJson(json) {
-    const showObj = new ShowModel();
+    const showObj = new Show();
     showObj.title = json.name;
     showObj.description = json.summary;
 
@@ -23,7 +23,3 @@ export class ShowModelSerializer {
   }
 }
 
-export default {
-  ShowModel,
-  ShowModelSerializer,
-};
