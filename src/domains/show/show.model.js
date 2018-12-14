@@ -1,5 +1,5 @@
 class ShowImage {
-  medium ='';
+  medium = '';
   original = '';
 }
 
