@@ -1,44 +1,99 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# TV Maze App
 
-## Available Scripts
+This app has 2 pages/domains.
+1) Show page which displays information about a selected show page.
+2) Episode page which displays the details about an episode of a certain show.
 
-In the project directory, you can run:
+# Dependencies
 
-### `npm start`
+- For build environment:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+npm 6+
+Node 8.10.0+\
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- For Cypress.io tests
 
-### `npm test`
+Chrome 71
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Setup
 
-### `npm run build`
+- This project is bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- RxJs is used for REST calls.
+- React Hooks are used.
+- Atomic design principles are implemented.
+- Single Search API is used for search input.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Structure
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+As observed in the tree structure below, 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- The main logic is under src folder. 
+- Components are defined using the atomic design principles.
+- Logic for 2 domains for 2 different pages are defined under domain folder.
+- Generic services such as the http service defined in the root service folder.
 
-### `npm run eject`
+```bash
+├── ./cypress
+│   ├── ./cypress/fixtures
+│   ├── ./cypress/integration
+│   ├── ./cypress/plugins
+│   └── ./cypress/support
+└── ./src
+    ├── ./src/components
+    │   ├── ./src/components/atoms
+    │   │   ├── ./src/components/atoms/button
+    │   │   └── ./src/components/atoms/title
+    │   ├── ./src/components/common
+    │   ├── ./src/components/molecules
+    │   │   └── ./src/components/molecules/logo
+    │   ├── ./src/components/organisms
+    │   │   ├── ./src/components/organisms/card
+    │   │   ├── ./src/components/organisms/cover
+    │   │   ├── ./src/components/organisms/header
+    │   │   ├── ./src/components/organisms/menu
+    │   │   ├── ./src/components/organisms/search
+    │   │   ├── ./src/components/organisms/season
+    │   │   └── ./src/components/organisms/seasonTable
+    │   ├── ./src/components/pages
+    │   │   ├── ./src/components/pages/Episode
+    │   │   ├── ./src/components/pages/Error
+    │   │   ├── ./src/components/pages/Show
+    │   │   └── ./src/components/pages/common
+    │   └── ./src/components/styles
+    │       └── ./src/components/styles/vendor
+    ├── ./src/config
+    ├── ./src/domains
+    │   ├── ./src/domains/common
+    │   │   └── ./src/domains/common/coverImage
+    │   ├── ./src/domains/episode
+    │   └── ./src/domains/show
+    └── ./src/services
+        ├── ./src/services/http
+        └── ./src/services/search
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# How to run the project
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1) Install the dependencies
+    ```console
+    npm install
+    ```
+2) Run the server
+    ```
+    npm run start
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+3) - In order to open the default **Powerpuff Girls** page goto `http://localhost:3000/` on your browser.
+   - In order to open another **show page** search it from the search input.
+   - In order to open the episodes page, click to one of the episodes link below or feel free to type the link in
+     address bar. *e.g.* [http://localhost:3000/shows/158/episodes/5/13](http://localhost:3000/shows/158/episodes/5/13)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# How to run integration tests
 
-## Learn More
+1) Start the cypress terminal
+    ```console
+    npm run cypress
+    ``` 
+- Click `Run all specs` to start the tests.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+If you want to run cypress in debug mode, type `npm run cypress:debug`
