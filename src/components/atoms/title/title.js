@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './title.css';
+
 export default function Title({children}) {
-  // console.log('Title', text);
   return (
-    <h1>{children}</h1>
+    <h1 className="title">{children}</h1>
   );
 }
 

@@ -1,4 +1,11 @@
+@import '../../styles/breakpoints';
+
 .header {
   padding: var(--element-padding);
   background-color: var(--secondary);
+
+  @media (min-width: $small) {
+    display: flex;
+    justify-content: space-between;
+  }
 }

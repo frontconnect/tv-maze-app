@@ -5,11 +5,11 @@
   padding: var(--element-padding);
 }
 
-.card--details {
+.card__details {
   display: flex;
 }
 
-.card--title {
+.card__title {
   @media (max-width: $small) {
     position: absolute;
     width: 1px;
@@ -22,19 +22,26 @@
   }
 }
 
-.card--details > *:not(:last-child) {
+.card__details > *:not(:last-child) {
   margin-right: var(--element-margin);
 }
 
-.card--description {
+.card__description {
   width: 60%;
-  flex-grow: 1;
+
+  @media (min-width: $large) {
+    width: 70%;
+  }
 }
-.card--description > * {
+.card__description > * {
   margin-top: 0;
 }
 
-.card--image {
+.card__image {
   width: 40%;
   min-width: 100px;
+
+  @media (min-width: $large) {
+    width: 30%;
+  }
 }

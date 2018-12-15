@@ -1,0 +1,12 @@
+.bread-crumbs {
+  display: flex;
+}
+
+.bread-crumb-item:not(:last-child) {
+  margin-right: var(--element-margin-small);
+}
+
+.bread-crumb-item:not(:last-child):after {
+  margin-left: var(--element-margin-small);
+  content: '>';
+}

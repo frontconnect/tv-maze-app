@@ -5,31 +5,53 @@ import { EpisodeSerializer } from './episode.model';
 
 class EpisodeService {
   getEpisodes(showId) {
-    const showUrl = `${baseUrl}/shows/${showId}/episodes`;
-    return HttpService.get(showUrl)
+    const episodesUrl = `${baseUrl}/shows/${showId}/episodes`;
+    return HttpService.get(episodesUrl)
       .pipe(
         map((episodes) => {
           return episodes.map((episode) => {
-            return EpisodeSerializer.fromJson(episode);
+            return EpisodeSerializer.fromEpisodesEndPoint(episode, showId);
           });
         })
       );
   }
 
-  getEpisodesInSeasonContainer(showId) {
+  /*
+   * Returns a season object in the following format:
+   *
+   * season = {
+   *   1: [episode1, episode2, ...]
+   *   2: [episode23, episode24, ...]
+   *   3: [episode35, episode36, ...]
+   *   .
+   *   .
+   *   .
+   * }
+   */
+  getSeasonsByEpisodes(showId) {
     return this.getEpisodes(showId)
       .pipe(
         map((episodes) => {
-          return episodes.reduce((seasonContainer, episode) => {
+          return episodes.reduce((seasons, episode) => {
             const season = episode.season;
-            if (seasonContainer[season]) {
-              seasonContainer.push(episode);
-              return seasonContainer;
+            if (seasons[season]) {
+              seasons[season].unshift(episode);
+              return seasons;
             }
 
-            seasonContainer[season] = [episode];
-            return seasonContainer;
+            seasons[season] = [episode];
+            return seasons;
           }, {});
+        })
+      );
+  }
+
+  getEpisode({showId, season, number}) {
+    const episodeUrl = `${baseUrl}/shows/${showId}/episodebynumber?season=${season}&number=${number}`;
+    return HttpService.get(episodeUrl)
+      .pipe(
+        map((episode) => {
+          return EpisodeSerializer.fromEpisodeByNumberEndPoint(episode);
         })
       );
   }

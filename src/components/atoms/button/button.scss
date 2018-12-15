@@ -1,0 +1,15 @@
+.cta-link {
+  color: var(--brand);
+  border: 1px solid var(--grey-3);
+  border-radius: var(--border-radius);
+}
+
+.cta-link:hover {
+  text-decoration: underline;
+  color: var(--color-type-body);
+}
+
+.cta-link.active {
+  text-decoration: underline;
+  font-weight: bold;
+}

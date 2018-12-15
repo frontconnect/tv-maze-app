@@ -1,0 +1,33 @@
+@import '../../styles/breakpoints';
+
+.search {
+  display: flex;
+  height: 40px;
+  vertical-align: baseline;
+  margin: var(--element-margin) 0;
+
+  @media (min-width: $small) {
+    align-self: center;
+    margin: 0;
+  }
+}
+
+.search img {
+  width: 20px;
+  height: 20px;
+}
+
+.search button {
+  background-color: var(--brand);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  height: 40px;
+}
+
+.search input {
+  padding: var(--element-padding);
+  border: none;
+  outline: 0;
+  line-height: 1rem;
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+  width: 100%;
+}

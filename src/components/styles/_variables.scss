@@ -13,6 +13,7 @@
   --atenttion: #2196f3;
   --wait: #fff8dd;
   --error: #d92525;
+  --background-color: #efefef;
 
   /*
   * Fonts
@@ -26,5 +27,17 @@
   * Spacing
   */
   --element-margin: 1rem;
+  --element-margin-small: .5rem;
   --element-padding: .5rem;
+
+  --border-radius: 6px;
+
+  /*
+   * Grids
+   */
+  --grid-gutter: .5rem;
+  --grid-padding: 1rem;
+  --grid-margin: 10px;
+  --medium-main-width-medium: 768px;
+  --medium-main-width-large: 1024px;
 }

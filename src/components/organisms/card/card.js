@@ -5,26 +5,30 @@ import Cover from '../cover/cover';
 
 import './card.css';
 
-export default function Card({show}) {
+export default function Card({item, ...rest}) {
   return (
-    <section className="card">
-      <header className="card--title">
-        <Title >{show.title}</Title>
+    <section className="card" {...rest}>
+      <header data-cy="card-title" className="card__title">
+        <Title >{item.title}</Title>
       </header>
-      <section className="card--details">
-        <aside className="card--image">
-          <Cover coverImage={show.coverImage} />
+      <section className="card__details">
+        <aside className="card__image">
+          <Cover coverImage={item.coverImage} />
         </aside>
-        <article className="card--description" dangerouslySetInnerHTML={{ __html: show.description}}/>
+        {Boolean(item.description)
+          ? <article data-cy="card-description" className="card__description" dangerouslySetInnerHTML={{ __html: item.description}}/>
+          : ''
+        }
       </section>
     </section>
   );
 }
 
 Card.propTypes = {
-  show: PropTypes.shape({
+  rest: PropTypes.object,
+  item: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    description: PropTypes.string,
     coverImage: PropTypes.shape({
       medium: PropTypes.string,
       original: PropTypes.string,

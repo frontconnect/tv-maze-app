@@ -1,0 +1,30 @@
+@import '../../styles/breakpoints';
+
+.table {
+  table-layout: fixed;
+}
+
+.header__number {
+  width: 20%;
+
+  @media (min-width: $small) {
+    width: 15%;
+  }
+}
+
+.header__airdate,
+.body__airdate {
+  width: 25%;
+
+  @media (max-width: $small - 1) {
+    display: none;
+  }
+}
+
+.header__title {
+  width: 80%;
+
+  @media (min-width: $small) {
+    width: 60%;
+  }
+}

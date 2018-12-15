@@ -1,4 +1,60 @@
-img {
-  max-width: 100%;
-  height: auto;
+@import "./breakpoints";
+
+// reset button
+button {
+  border: 0;
+  background-color: transparent;
+  padding: var(--element-padding);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:focus,
+button:active {
+  outline: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+// Table element
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table__header {
+  text-align: left;
+}
+
+.table__body tr:nth-of-type(odd) {
+  background: var(--grey-4);
+}
+
+.table__body tr:nth-of-type(even) {
+  background: white;
+}
+
+.table__body tr,
+.table__body tr {
+  font-weight: 400;
+}
+
+main {
+  margin: 10px auto;
+  padding: 0 5%;
+
+  @media (min-width: $medium) {
+    width: var(--medium-main-width-medium);
+  }
+
+  @media (min-width: $large) {
+    width: var(--medium-main-width-large);
+  }
+
 }

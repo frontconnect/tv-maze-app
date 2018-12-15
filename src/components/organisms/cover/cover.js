@@ -7,8 +7,8 @@ import './cover.css';
 export default function Cover({coverImage, alt = ''}) {
   return (
     <picture>
-      <source srcSet={`${coverImage.medium}`} media={`(max-width: ${BREAKPOINTS.medium}`}/>
-      <img className="cover--image" src={coverImage.original} alt={alt}/>
+      <source srcSet={`${coverImage.original}`} media={`(min-width: ${BREAKPOINTS.small})`}/>
+      <img className="cover__image" src={coverImage.medium} alt={alt}/>
     </picture>
   );
 }

@@ -1,11 +1,26 @@
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--headers-font-family);
   font-weight: 300;
+  margin-top: 0;
 }
 
 h1 {
   font-size: 3rem;
+  margin-bottom: var(--element-margin);
   line-height: var(--headers-font-lineheight);
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+}
+
+h2 {
+  margin-bottom: var(--element-margin-small);
+}
+
+a {
+  color: var(--brand);
+  cursor: pointer;
+  line-height: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
